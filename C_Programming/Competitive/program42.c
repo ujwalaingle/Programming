@@ -1,0 +1,58 @@
+/////   Write a program which accepts a number from user and returns the count of odd digits
+
+/////   Input : 2395
+/////   Output : 1
+
+/////   Input : 1018
+/////   Output : 2
+
+/////   Input : -1018
+/////   Output : 2
+
+/////   Input : 8462
+/////   Output : 4
+
+#include<stdio.h>
+
+int CountEven(int iNo)
+{
+
+    if (iNo < 0)
+    {
+        iNo = -iNo;
+    }
+
+    int iDigit = 0;
+    int iCountOdd = 0;
+
+    while (iNo != 0)
+    {
+        iDigit = iNo % 10;
+        
+        if (iDigit % 2 != 0)
+        {
+            iCountOdd++;
+        }
+
+        iNo = iNo/10;
+    }
+
+    return iCountOdd;
+}
+
+int main()
+{
+    int iValue = 0;
+    int iRet = 0;
+    
+    printf("Enter number : \n");
+    scanf("%d", &iValue);
+
+    iRet = CountEven(iValue);
+
+    printf("%d", iRet);
+
+    return 0;
+}
+
+// Time Complexity = O(N) (where N is the number of digits)
